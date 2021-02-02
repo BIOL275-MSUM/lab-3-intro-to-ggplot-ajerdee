@@ -3,6 +3,19 @@
 
 library(tidyverse)
 
+
+# Read Firefly Data -------------------------------------------------------
+
+
+fireflies_data <- read_csv("https://whitlockschluter.zoology.ubc.ca/wp-content/data/chapter02/chap02q19FireflySpermatophoreMass.csv")
+fireflies_data
+
+distinct(fireflies_data, spermatophoreMass)
+
+# Contingency Table of firefly spermataphore mass measurments ---------------------------
+
+count(fireflies_data, spermatophoreMass)
+
 # fireflies --------------------------------------------------------------
                           
 ggplot(data = fireflies_data)      # make histogram
@@ -39,7 +52,7 @@ ggplot(data = fireflies_data) +
 
 
   
-# Bird Orders -------------------------------------------------------------
+# Load Packages and Bird Data -------------------------------------------------------------
 
 
 library(auk)                          # load the auk package
@@ -71,4 +84,6 @@ ggplot(data = birds) +
     axis.text.x = element_text(angle = 60, hjust = 1),
     axis.ticks.x = element_blank()
   )
+
+
 
