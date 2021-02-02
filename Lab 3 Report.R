@@ -1,0 +1,121 @@
+---
+  title: "Lab 3 Report"
+author: "Amaya Jerdee"
+date: "`r format(Sys.Date())`"
+output: github_document
+---
+  
+Instructions for this lab report can be found on [Your assignment section of Lab Assignment 3 Introduction to ggplot2](https://biol275-msum.github.io/introduction-to-ggplot2.html#your-assignment) on the lab website.
+                                                                                                                      
+# Fireflies
+> A. Insert an R code chunk and create a graph depicting the frequency distribution of the 35 mass measurements. It should have legible text and appropriate axis labels.
+
+## Load Packages
+                                                                                                                         
+```{r}
+library(tidyverse)
+```
+                                                                                                                         
+## Load and Read Firefly Data
+                                                                                                                         
+```{r}
+firefly_data <- read_csv("https://whitlockschluter.zoology.ubc.ca/wp-content/data/chapter02/chap02q19FireflySpermatophoreMass.csv") 
+firefly_data
+```
+                                                                                                                         
+## Histogram of firefly spermatophore mass measurements
+                                                                                                                         
+```{r}
+ggplot(data = fireflies_data) +
+  geom_histogram(mapping = aes(x = spermatophoreMass))
+
+ggplot(data = fireflies_data) +
+  geom_histogram(mapping = aes(x = spermatophoreMass), binwidth = 0.01)   
+
+ggplot(data = fireflies_data) +
+  geom_histogram(mapping = aes(x = spermatophoreMass), binwidth = 0.01,          
+                 boundary = 0, closed = "left")                            
+
+ggplot(data = fireflies_data) +
+  geom_histogram(mapping = aes(x = spermatophoreMass), binwidth = 0.01,
+                 boundary = 0, closed = "left")
+
+ggplot(data = fireflies_data) +
+  geom_histogram(mapping = aes(x = spermatophoreMass), binwidth = 0.01,
+                 boundary = 0, closed = "left", 
+                 fill = "#C5351B", color = "black") +
+  labs(x = "Spermatophore Mass (mg)", y = "Frequency (number of individual fireflies)") +
+  scale_y_continuous(breaks = seq(0, 30, 5), limits = c(0, 30), 
+                     expand = expansion(mult = 0)) +
+  scale_x_continuous(breaks = seq(0, 600, 100)) +
+  theme_classic() +
+  theme(
+    axis.title = element_text(face = "bold"),
+    axis.text = element_text(color = "black", size = rel(1))      
+  )
+                                                                                                                        
+ ```
+  ## Questions about firefly data
+                                                                                                                         
+ > B. What type of graph did you choose in part (A)? Why?
+  *I created a histogram because we were given a numerical variable data set. The reason for this choice was because bar graphs show frequency distribution of categorical data better and we were given numerical data frequencies, which is better represented by histograms*                                                                                                                  
+                                                                                                                           
+> C. Describe the shape of the frequency distribution. What are its main features?
+  *Unimodal skewing right is the shape visable on the histogram. The one main bell-shaped clump of data between 0.03mg and 0.10mg.                                                                                                                         
+                                                                                                                           
+> D. What term would be used to describe the largest measurement in the frequency distribution? You can refer to the lecture slides, your notes, or the textbook.
+  *The Mode.*
+                                                                                                                           
+                                                                                                                           
+# Bird orders
+                                                                                                                           
+I read the data using the code provided by the instructor. The dataset is from the auk package and was originally named ebird_taxonomy. I converted it to a tibble, removed non-species taxa, and named the new dataset birds.
+                                                                                                                         
+ ## Load package, convert/filter bird data
+                                                                                                                         
+```{r}
+library(auk)                          # load the auk package
+birds <- ebird_taxonomy %>%           # start with the ebird_taxonomy data
+as_tibble() %>%                     # tibbles print better in the console
+filter(category == "species")       # remove non-species taxa
+```
+                                                                                                                         
+## Read bird data
+                                                                                                                         
+``{r}
+birds
+distinct(birds, scientific_name)
+count(birds, order)
+```                                                                                                                         
+                                                                                                                         
+## Questions about bird data
+                                                                                                                         
+> E. How many bird species are in the new birds dataset? How did you find out?
+*There are 10,721 bird species in the dataset. I found this by creating a table of distinct scientific names and there were a total of 10,721 rows, telling me that that is how many bird species there are.*
+                                                                                                                           
+> H. How many orders are there? You can get this right by counting on the graph, but you will only get full points if you use some code to figure it out.
+*There are 41 orders. I found this by creating a contingency table of the orders and their frequency. There were 41 rows, telling me that there are 41 distinct orders.*
+                                                                                                                           
+## Bird Order Bar Graph
+                                                                                                                           
+> F. Insert an R code chunk and create a graph depicting the distribution of orders in the birds dataset. Sort the orders with the most frequent on the left. It should have legible text and appropriate axis labels.
+```{r}
+ggplot(data = birds) +
+  geom_bar(mapping = aes(x = fct_infreq(order)), fill = "#E2A76F", 
+           width = .8) +
+  labs(x = "Order", y = "Frequency (log number of bird species)", 
+       title = "Number of bird species in each order", 
+       subtitle = "*Note that numbers are in log scale to better show all data.") +
+  scale_y_log10() +
+  theme_classic(base_size = 12) +
+  theme(
+    axis.title = element_text(face = "bold"),
+    axis.text = element_text(color = "black", size = rel(.7)),
+    axis.text.x = element_text(angle = 60, hjust = 1),
+    axis.ticks.x = element_blank()
+  )                                                                                                                     
+```                                                                                                                      
+> G. What kind of graph did you create? Why?
+  *We are representing a categoricak variable, which is best shown on a bar graph.*
+                                                                                                                           
+\_\_\_
