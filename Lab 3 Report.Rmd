@@ -109,8 +109,9 @@ ggplot(data = birds) +
 ```                                                                                                                      
 
 > G. What kind of graph did you create? Why?
-  *We are representing a categorical variable, which is best shown on a bar graph.*
-                                                                                                                           
+
+*We are representing a categotical varible, which is best shown on a bar graph*
+                                                                                    
 \_\_\_
 
 ## Links to peer review

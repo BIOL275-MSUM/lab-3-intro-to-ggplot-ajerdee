@@ -167,8 +167,10 @@ ggplot(data = birds) +
 
 ![](Lab-3-Report_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
-> G. What kind of graph did you create? Why? *We are representing a
-> categorical variable, which is best shown on a bar graph.*
+> G. What kind of graph did you create? Why?
+
+*We are representing a categotical varible, which is best shown on a bar
+graph*
 
 \_\_\_
 
