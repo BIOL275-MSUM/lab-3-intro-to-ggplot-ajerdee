@@ -1,7 +1,7 @@
 Lab 3 Report
 ================
 Amaya Jerdee
-2021-02-02
+2021-02-08
 
 Instructions for this lab report can be found on [Your assignment
 section of Lab Assignment 3 Introduction to
@@ -174,6 +174,11 @@ ggplot(data = birds) +
 
 ## Links to peer review
 
+I reviewed Brett Vetter’s lab report at this
+Url:<https://github.com/BIOL275-MSUM/lab-3-intro-to-ggplot-brettvetter>
+Brett Vetter reviewed my lab report at this Url:
+<https://github.com/BIOL275-MSUM/lab-3-intro-to-ggplot-ajerdee>
+
 ## Session Info
 
 Here is my session information:
@@ -192,7 +197,7 @@ sessioninfo::session_info()
     ##  collate  en_US.UTF-8                 
     ##  ctype    en_US.UTF-8                 
     ##  tz       America/Chicago             
-    ##  date     2021-02-02                  
+    ##  date     2021-02-08                  
     ## 
     ## ─ Packages ───────────────────────────────────────────────────────────────────
     ##  package     * version date       lib source        

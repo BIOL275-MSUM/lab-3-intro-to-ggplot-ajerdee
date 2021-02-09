@@ -114,6 +114,8 @@ ggplot(data = birds) +
 \_\_\_
 
 ## Links to peer review
+I reviewed Brett Vetter's lab report at this Url:https://github.com/BIOL275-MSUM/lab-3-intro-to-ggplot-brettvetter
+Brett Vetter reviewed my lab report at this Url: https://github.com/BIOL275-MSUM/lab-3-intro-to-ggplot-ajerdee
 
 ## Session Info
 
